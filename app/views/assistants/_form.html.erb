@@ -1,0 +1,57 @@
+<%= form_with(model: assistant, local: true) do |form| %>
+  <% if assistant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(assistant.errors.count, "error") %> prohibited this assistant from being saved:</h2>
+
+      <ul>
+      <% assistant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :reservation_code %>
+    <%= form.text_field :reservation_code, id: :assistant_reservation_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :assistant_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :assistant_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :assistant_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pay_method %>
+    <%= form.text_field :pay_method, id: :assistant_pay_method %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_quantity %>
+    <%= form.number_field :ticket_quantity, id: :assistant_ticket_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reservation_date %>
+    <%= form.date_select :reservation_date, id: :assistant_reservation_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attended %>
+    <%= form.check_box :attended, id: :assistant_attended %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

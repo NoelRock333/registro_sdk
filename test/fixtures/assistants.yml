@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reservation_code: MyString
+  name: MyString
+  last_name: MyString
+  email: MyString
+  pay_method: MyString
+  ticket_quantity: 1
+  reservation_date: 2018-05-07
+
+two:
+  reservation_code: MyString
+  name: MyString
+  last_name: MyString
+  email: MyString
+  pay_method: MyString
+  ticket_quantity: 1
+  reservation_date: 2018-05-07

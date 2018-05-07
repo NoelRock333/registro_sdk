@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reservation code:</strong>
+  <%= @assistant.reservation_code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @assistant.name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @assistant.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @assistant.email %>
+</p>
+
+<p>
+  <strong>Pay method:</strong>
+  <%= @assistant.pay_method %>
+</p>
+
+<p>
+  <strong>Ticket quantity:</strong>
+  <%= @assistant.ticket_quantity %>
+</p>
+
+<p>
+  <strong>Reservation date:</strong>
+  <%= @assistant.reservation_date %>
+</p>
+
+<p>
+  <strong>Llegó:</strong>
+  <%= "#{@assistant.attended ? 'SI' : 'NO' }" %>
+</p>
+
+<%= link_to 'Edit', edit_assistant_path(@assistant) %> |
+<%= link_to 'Back', assistants_path %>

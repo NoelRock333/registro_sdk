@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Aisstentes al SDK</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reservation code</th>
+      <th>Name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Pay method</th>
+      <th>Ticket quantity</th>
+      <th>Reservation date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assistants.each do |assistant| %>
+      <tr>
+        <td><%= assistant.reservation_code %></td>
+        <td><%= assistant.name %></td>
+        <td><%= assistant.last_name %></td>
+        <td><%= assistant.email %></td>
+        <td><%= assistant.pay_method %></td>
+        <td><%= assistant.ticket_quantity %></td>
+        <td><%= assistant.reservation_date %></td>
+        <td><%= link_to 'Show', assistant %></td>
+        <td><%= link_to 'Edit', edit_assistant_path(assistant) %></td>
+        <td><%= link_to 'Destroy', assistant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assistant', new_assistant_path %>
