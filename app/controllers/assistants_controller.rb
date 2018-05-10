@@ -24,7 +24,7 @@ class AssistantsController < ApplicationController
   # POST /assistants
   # POST /assistants.json
   def create
-    @assistant = Assistant.new(assistant_params)
+    @assistant = Assistant.new(assistant_params.merge(:attended => true, :ticket_quantity => 1))
 
     respond_to do |format|
       if @assistant.save

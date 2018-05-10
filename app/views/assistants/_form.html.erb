@@ -29,6 +29,11 @@
   </div>
 
   <div class="form-group">
+    <%= form.label 'Metodo de pago' %>
+    <%= form.select(:pay_method, ['Cortesia', 'Oxxo', 'Tarjeta', 'Depósito Boletia'], {}, { :class => 'form-control' }) %>
+  </div>
+
+  <div class="form-group">
     <%= form.label 'Cantidad de boletos' %>
     <%= form.number_field :ticket_quantity, id: :assistant_ticket_quantity %>
   </div>
@@ -37,13 +42,9 @@
     <%= form.label :reservation_date %>
     <%= form.date_select :reservation_date, id: :assistant_reservation_date %>
   </div>
-
-   <!--<div class="form-group">
-    <%= form.label :attended %>
-    <%= form.check_box :attended, id: :assistant_attended %>
-  </div> -->
-  
+ 
   <div class="form-group">
+    <%= form.label 'Notas' %>
     <%= form.text_area :notes, id: :assistant_notes, class: 'form-control' %>
   </div>
 

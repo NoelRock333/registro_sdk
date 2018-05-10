@@ -13,3 +13,15 @@
  */
 
  @import "bootstrap";
+
+ .assistants {
+   tr.attended {
+     td {
+       background: $success;
+       color: white;
+       a {
+         color: white;
+       }
+     }
+   }
+ }

@@ -3,7 +3,7 @@
 <h1>Aisstentes al SDK</h1>
 <%= link_to 'Importar asistentes', new_import_path, class: 'btn btn-link' %>
 <%= link_to 'Registrar asistente', new_assistant_path, class: 'btn btn-success' %>
-<table class="table table-striped">
+<table class="table table-striped assistants">
   <thead>
     <tr>
       <th>Código</th>
@@ -13,13 +13,14 @@
       <th>Metodo de pago</th>
       <th>Boletos</th>
       <th>Fecha de reservacion</th>
-      <th colspan="3"></th>
+      <th>Asistencia</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @assistants.each do |assistant| %>
-      <tr>
+      <tr class="<%= assistant.attended ? 'attended' : '' %>">
         <td><%= assistant.reservation_code %></td>
         <td><%= assistant.name %></td>
         <td><%= assistant.last_name %></td>
@@ -27,6 +28,7 @@
         <td><%= assistant.pay_method %></td>
         <td><%= assistant.ticket_quantity %></td>
         <td><%= assistant.reservation_date %></td>
+        <td><%= "#{assistant.attended ? 'Si' : 'No :(' }" %></td>
         <td><%= link_to 'Mostrar', assistant %></td>
         <td><%= link_to 'Editar', edit_assistant_path(assistant) %></td>
         <!-- <td><%= link_to 'Destroy', assistant, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
