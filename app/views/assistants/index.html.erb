@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Aisstentes al SDK</h1>
-<%= link_to 'Importar asistentes', new_import_path %>
-
-<table>
+<%= link_to 'Importar asistentes', new_import_path, class: 'btn btn-link' %>
+<%= link_to 'Registrar asistente', new_assistant_path, class: 'btn btn-success' %>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Reservation code</th>
-      <th>Name</th>
-      <th>Last name</th>
+      <th>Código</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
       <th>Email</th>
-      <th>Pay method</th>
-      <th>Ticket quantity</th>
-      <th>Reservation date</th>
+      <th>Metodo de pago</th>
+      <th>Boletos</th>
+      <th>Fecha de reservacion</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,9 +27,9 @@
         <td><%= assistant.pay_method %></td>
         <td><%= assistant.ticket_quantity %></td>
         <td><%= assistant.reservation_date %></td>
-        <td><%= link_to 'Show', assistant %></td>
-        <td><%= link_to 'Edit', edit_assistant_path(assistant) %></td>
-        <td><%= link_to 'Destroy', assistant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', assistant %></td>
+        <td><%= link_to 'Editar', edit_assistant_path(assistant) %></td>
+        <!-- <td><%= link_to 'Destroy', assistant, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
@@ -37,4 +37,4 @@
 
 <br>
 
-<%= link_to 'New Assistant', new_assistant_path %>
+<%= link_to 'Registrar asistente', new_assistant_path, class: 'btn btn-success' %>
