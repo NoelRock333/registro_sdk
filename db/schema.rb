@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180510020944) do
     t.integer "ticket_quantity"
     t.date "reservation_date"
     t.boolean "attended"
+    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

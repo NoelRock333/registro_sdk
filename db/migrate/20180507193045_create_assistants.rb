@@ -9,6 +9,7 @@ class CreateAssistants < ActiveRecord::Migration[5.1]
       t.integer :ticket_quantity
       t.date :reservation_date
       t.boolean :attended
+      t.text :notes
 
       t.timestamps
     end
