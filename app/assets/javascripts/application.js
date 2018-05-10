@@ -21,19 +21,23 @@
 $(document).ready(function() {
   $('.mark-as-attended').on('click', function() {
     $dataTag = $(this);
-    $.ajax({
-      type: 'PUT',
-      data: {
-        authenticity_token: $('[name="csrf-token"]')[0].content
-      },
-      url: '/assistants/' + $dataTag.data('id') + '/mark',
-      dataType: 'JSON'
-    }).done(function(data) {
-      console.log(data);
-      if (data) {
-        $dataTag.closest('.assistant-row').addClass('attended');
-        $dataTag.html('Si');
-      }
-    });
+    var response = confirm('¿lo vas a marcar o desmarcar?');
+    if (response) {
+      // $dataTag.closest('.assistant-row').hasClass('attended')
+      $.ajax({
+        type: 'PUT',
+        data: {
+          authenticity_token: $('[name="csrf-token"]')[0].content
+        },
+        url: '/assistants/' + $dataTag.data('id') + '/mark',
+        dataType: 'JSON'
+      }).done(function(data) {
+        console.log(data);
+        if (data) {
+          $dataTag.closest('.assistant-row').addClass('attended');
+          $dataTag.html('Si');
+        }
+      });
+    }
   });
 });
