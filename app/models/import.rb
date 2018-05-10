@@ -14,7 +14,6 @@ class Import < ApplicationRecord
           :ticket_quantity => @row_hash['Número de boletos'],
           :reservation_date => @row_hash['Fecha de creación dd/mm/aaaa']
         ]
-        puts @assistent
         Assistant.create! @assistent
       end
     end

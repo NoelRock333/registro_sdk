@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Aisstentes al SDK</h1>
+<h1>Asistentes al SDK</h1>
 <%= link_to 'Importar asistentes', new_import_path, class: 'btn btn-link' %>
 <%= link_to 'Registrar asistente', new_assistant_path, class: 'btn btn-success' %>
 <table class="table table-striped assistants">
@@ -20,7 +20,7 @@
 
   <tbody>
     <% @assistants.each do |assistant| %>
-      <tr class="assistant-row <%= assistant.attended ? 'attended' : '' %>">
+      <tr class="assistant-row <%= assistant.attended ? 'attended' : '' %>" id="assistant_<%= assistant.id %>">
         <td><%= assistant.reservation_code %></td>
         <td><%= assistant.name %></td>
         <td><%= assistant.last_name %></td>

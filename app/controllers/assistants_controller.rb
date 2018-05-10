@@ -23,9 +23,15 @@ class AssistantsController < ApplicationController
 
   def mark
     @assistant = Assistant.find(params[:id]) 
-    @assistant.update(:attended => true)
     respond_to do |format|
-       format.json { render json: @assistant.errors, status: :ok }
+      if @assistant.update(:attended => params[:attended])
+        Pusher.trigger('my-channel', 'my-event', {
+          assistant: @assistant.to_json
+        });
+        format.json { render json: {}, status: :ok }
+      else 
+        format.json { render json: @assistant.errors, status: :unprocessable_entity }
+      end
     end
   end
 

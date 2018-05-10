@@ -18,25 +18,41 @@
 //= require popper
 //= require bootstrap-sprockets
 
+Pusher.logToConsole = true;
+var pusher = new Pusher('d06a8153ce6dd021ea62', {
+  cluster: 'us2',
+  encrypted: true
+});
+
+var channel = pusher.subscribe('my-channel');
+channel.bind('my-event', function(data) {
+  var assistant = JSON.parse(data.assistant);
+  var $assistant = $('#assistant_'+assistant.id);
+  if (assistant.attended) {
+    $assistant.addClass('attended');
+    $assistant.find('.mark-as-attended').html('Si');
+  } else {
+    $assistant.removeClass('attended');
+    $assistant.find('.mark-as-attended').html('No :(');
+  }
+});
+
 $(document).ready(function() {
   $('.mark-as-attended').on('click', function() {
-    $dataTag = $(this);
+    var id = $(this).data('id');
+    var attended = $(this).closest('.assistant-row').hasClass('attended');
     var response = confirm('¿lo vas a marcar o desmarcar?');
     if (response) {
-      // $dataTag.closest('.assistant-row').hasClass('attended')
       $.ajax({
         type: 'PUT',
         data: {
-          authenticity_token: $('[name="csrf-token"]')[0].content
+          authenticity_token: $('[name="csrf-token"]')[0].content,
+          attended: !JSON.parse(attended)
         },
-        url: '/assistants/' + $dataTag.data('id') + '/mark',
+        url: '/assistants/' + id + '/mark',
         dataType: 'JSON'
-      }).done(function(data) {
-        console.log(data);
-        if (data) {
-          $dataTag.closest('.assistant-row').addClass('attended');
-          $dataTag.html('Si');
-        }
+      }).fail(function() {
+        alert('Algo salió mal');
       });
     }
   });
