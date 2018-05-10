@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507193045) do
+ActiveRecord::Schema.define(version: 20180510020944) do
 
   create_table "assistants", force: :cascade do |t|
     t.string "reservation_code"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20180507193045) do
     t.integer "ticket_quantity"
     t.date "reservation_date"
     t.boolean "attended"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "imports", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
