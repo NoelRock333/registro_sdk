@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :assistants
+  resources :assistants do
+    member do 
+      put :mark
+    end
+  end
+  
   resources :imports, only: [:new, :create]
 
   root 'assistants#index'

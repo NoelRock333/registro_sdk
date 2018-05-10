@@ -20,7 +20,7 @@
 
   <tbody>
     <% @assistants.each do |assistant| %>
-      <tr class="<%= assistant.attended ? 'attended' : '' %>">
+      <tr class="assistant-row <%= assistant.attended ? 'attended' : '' %>">
         <td><%= assistant.reservation_code %></td>
         <td><%= assistant.name %></td>
         <td><%= assistant.last_name %></td>
@@ -28,7 +28,11 @@
         <td><%= assistant.pay_method %></td>
         <td><%= assistant.ticket_quantity %></td>
         <td><%= assistant.reservation_date %></td>
-        <td><%= "#{assistant.attended ? 'Si' : 'No :(' }" %></td>
+        <td>
+          <div class="mark-as-attended" data-id="<%= assistant.id %>">
+            <%= "#{assistant.attended ? 'Si' : 'No :(' }" %>
+          </div>
+        </td>
         <td><%= link_to 'Mostrar', assistant %></td>
         <td><%= link_to 'Editar', edit_assistant_path(assistant) %></td>
         <!-- <td><%= link_to 'Destroy', assistant, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->

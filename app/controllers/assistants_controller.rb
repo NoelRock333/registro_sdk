@@ -21,6 +21,14 @@ class AssistantsController < ApplicationController
   def edit
   end
 
+  def mark
+    @assistant = Assistant.find(params[:id]) 
+    @assistant.update(:attended => true)
+    respond_to do |format|
+       format.json { render json: @assistant.errors, status: :ok }
+    end
+  end
+
   # POST /assistants
   # POST /assistants.json
   def create

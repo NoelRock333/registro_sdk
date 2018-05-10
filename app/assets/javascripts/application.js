@@ -17,3 +17,23 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$(document).ready(function() {
+  $('.mark-as-attended').on('click', function() {
+    $dataTag = $(this);
+    $.ajax({
+      type: 'PUT',
+      data: {
+        authenticity_token: $('[name="csrf-token"]')[0].content
+      },
+      url: '/assistants/' + $dataTag.data('id') + '/mark',
+      dataType: 'JSON'
+    }).done(function(data) {
+      console.log(data);
+      if (data) {
+        $dataTag.closest('.assistant-row').addClass('attended');
+        $dataTag.html('Si');
+      }
+    });
+  });
+});
