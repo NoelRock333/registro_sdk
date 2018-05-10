@@ -1,43 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Reservation code:</strong>
+  <strong>Código:</strong>
   <%= @assistant.reservation_code %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @assistant.name %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
+  <strong>Apellido:</strong>
   <%= @assistant.last_name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>Correo:</strong>
   <%= @assistant.email %>
 </p>
 
 <p>
-  <strong>Pay method:</strong>
-  <%= @assistant.pay_method %>
-</p>
-
-<p>
-  <strong>Ticket quantity:</strong>
-  <%= @assistant.ticket_quantity %>
-</p>
-
-<p>
-  <strong>Reservation date:</strong>
+  <strong>Fecha de reservacion:</strong>
   <%= @assistant.reservation_date %>
 </p>
 
 <p>
   <strong>Llegó:</strong>
-  <%= "#{@assistant.attended ? 'SI' : 'NO' }" %>
+  <%= "#{@assistant.attended ? 'Si' : 'No' }" %>
+</p>
+
+<p>
+  <strong>Notas:</strong>
+  <%= @assistant.notes %>
 </p>
 
 <%= link_to 'Edit', edit_assistant_path(@assistant) %> |

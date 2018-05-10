@@ -1,4 +1,4 @@
-<%= form_with(model: assistant, local: true, class: 'col-md-5') do |form| %>
+<%= form_with(model: assistant, local: true, class: 'col') do |form| %>
   <% if assistant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(assistant.errors.count, "error") %> prohibited this assistant from being saved:</h2>
@@ -28,15 +28,15 @@
     <%= form.text_field :email, id: :assistant_email, class: 'form-control', placeholder: 'Córreo eléctronico' %>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <%= form.label 'Metodo de pago' %>
     <%= form.select(:pay_method, ['Cortesia', 'Oxxo', 'Tarjeta', 'Depósito Boletia'], {}, { :class => 'form-control' }) %>
-  </div>
+  </div> -->
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <%= form.label 'Cantidad de boletos' %>
     <%= form.number_field :ticket_quantity, id: :assistant_ticket_quantity %>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <%= form.label :reservation_date %>
@@ -49,7 +49,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit 'Registrar', class: 'btn btn-primary' %>
+    <%= form.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 
 <% end %>

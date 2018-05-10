@@ -25,9 +25,9 @@ class AssistantsController < ApplicationController
     @assistant = Assistant.find(params[:id]) 
     respond_to do |format|
       if @assistant.update(:attended => params[:attended])
-        Pusher.trigger('my-channel', 'my-event', {
-          assistant: @assistant.to_json
-        });
+        # Pusher.trigger('my-channel', 'my-event', {
+        #   assistant: @assistant.to_json
+        # });
         format.json { render json: {}, status: :ok }
       else 
         format.json { render json: @assistant.errors, status: :unprocessable_entity }
@@ -83,6 +83,6 @@ class AssistantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assistant_params
-      params.require(:assistant).permit(:reservation_code, :name, :last_name, :email, :pay_method, :ticket_quantity, :reservation_date, :attended)
+      params.require(:assistant).permit(:reservation_code, :name, :last_name, :email, :notes, :pay_method, :ticket_quantity, :reservation_date, :attended)
     end
 end

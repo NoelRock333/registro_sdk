@@ -56,4 +56,20 @@ $(document).ready(function() {
       });
     }
   });
+
+  // $('body').on('click', '.modal-link', function(ev) {
+  //   ev.preventDefault();
+  //   var $urlTag = $(this);
+  //   var $myModal = $('#exampleModal');
+  //   $myModal.modal('show');
+  //   $myModal.find('.modal-body').empty();
+  //   $.ajax({
+  //     url: $urlTag.attr('href'),
+  //     method: 'GET',
+  //     dataType: 'HTML'
+  //   }).done(function(data) {
+  //     $myModal.find('.modal-title').html($urlTag.data('title'));
+  //     $myModal.find('.modal-body').html(data);
+  //   });
+  // });
 });

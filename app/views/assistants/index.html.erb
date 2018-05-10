@@ -10,8 +10,6 @@
       <th>Nombres</th>
       <th>Apellidos</th>
       <th>Email</th>
-      <th>Metodo de pago</th>
-      <th>Boletos</th>
       <th>Fecha de reservacion</th>
       <th>Asistencia</th>
       <th colspan="2"></th>
@@ -25,16 +23,14 @@
         <td><%= assistant.name %></td>
         <td><%= assistant.last_name %></td>
         <td><%= assistant.email %></td>
-        <td><%= assistant.pay_method %></td>
-        <td><%= assistant.ticket_quantity %></td>
         <td><%= assistant.reservation_date %></td>
         <td>
-          <div class="mark-as-attended" data-id="<%= assistant.id %>">
+          <div class="mark-as-attended btn btn-secondary" data-id="<%= assistant.id %>">
             <%= "#{assistant.attended ? 'Si' : 'No :(' }" %>
           </div>
         </td>
         <td><%= link_to 'Mostrar', assistant %></td>
-        <td><%= link_to 'Editar', edit_assistant_path(assistant) %></td>
+        <td><%= link_to 'Editar', edit_assistant_path(assistant), class: 'modal-link',  "data-title" => "Editar asistente" %></td>
         <!-- <td><%= link_to 'Destroy', assistant, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
@@ -44,3 +40,23 @@
 <br>
 
 <%= link_to 'Registrar asistente', new_assistant_path, class: 'btn btn-success' %>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <%# <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> %>
+    </div>
+  </div>
+</div>
