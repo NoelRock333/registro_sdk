@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
 
 //= require jquery3
@@ -38,6 +37,12 @@ channel.bind('my-event', function(data) {
 });
 
 $(document).ready(function() {
+  $.getScript("http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js", function() {
+    var t = $('#assistants-table').DataTable({
+      pageLength: 100
+    });
+  });
+
   $('.mark-as-attended').on('click', function() {
     var id = $(this).data('id');
     var attended = $(this).closest('.assistant-row').hasClass('attended');

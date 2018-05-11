@@ -3,7 +3,7 @@
 <h1>Asistentes al SDK</h1>
 <%= link_to 'Importar asistentes', new_import_path, class: 'btn btn-link' %>
 <%= link_to 'Registrar asistente', new_assistant_path, class: 'btn btn-success' %>
-<table class="table table-striped assistants">
+<table class="table table-striped assistants" id="assistants-table">
   <thead>
     <tr>
       <th>Código</th>
@@ -12,7 +12,7 @@
       <th>Email</th>
       <th>Fecha de reservacion</th>
       <th>Asistencia</th>
-      <th colspan="2"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -29,8 +29,7 @@
             <%= "#{assistant.attended ? 'Si' : 'No :(' }" %>
           </div>
         </td>
-        <td><%= link_to 'Mostrar', assistant %></td>
-        <td><%= link_to 'Editar', edit_assistant_path(assistant), class: 'modal-link',  "data-title" => "Editar asistente" %></td>
+        <td><%= link_to 'Mostrar', assistant %> <%= link_to 'Editar', edit_assistant_path(assistant), class: 'modal-link',  "data-title" => "Editar asistente" %></td>
         <!-- <td><%= link_to 'Destroy', assistant, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
