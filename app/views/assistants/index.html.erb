@@ -3,6 +3,7 @@
 <h1>Asistentes al SDK</h1>
 <%= link_to 'Importar asistentes', new_import_path, class: 'btn btn-link' %>
 <%= link_to 'Registrar asistente', new_assistant_path, class: 'btn btn-success' %>
+<%= link_to 'Exportar', assistants_export_path(format: "csv"), class: 'btn btn-warning' %>
 <table class="table table-striped assistants" id="assistants-table">
   <thead>
     <tr>
